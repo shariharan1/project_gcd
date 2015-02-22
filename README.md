@@ -25,14 +25,14 @@ This .R file contains the following functions
 ### init()
 
 performs the following actions:
-* Initialises the directory variables and identifies the **CURR_WORKDIR**
-* Verifies whether the required folder **DATASET_FOLDER** (**UCI HAR Dataset**) or **SOURCE_ZIP** (**UCI HAR Dataset.zip**) file is present in **CURR_WORKDIR**
-..*If both the **DATASET_FOLDER** and the **SOURCE_ZIP** file is **NOT** present, *stops the execution with an error message*
-* If the **DATASET_FOLDER** is present, assumes that the *required files are already available* there
-* If the **DATASET_FOLDER** is **NOT** present, but the **SOURCE_ZIP** is available, will extract the contents of the **SOURCE_ZIP** file
-* Reads and loads the Activity Id/Labels from the file `**activity_labels.txt**` into **dfACTIVITIES** (dataframe)
-* Reads and loads the Feature Labels (Sensor Data/Calculations) from the file `**features.txt**` into **dfFEATURES** (dataframe)
-..*Renames/Expands/Sanitizes the Feature Labels in **dfFEATURES** dataframe 
+* Initialises the directory variables and identifies the `CURR_WORKDIR`
+* Verifies whether the required folder `DATASET_FOLDER` (**UCI HAR Dataset**) or `SOURCE_ZIP` (**UCI HAR Dataset.zip**) file is present in `CURR_WORKDIR`
+** If both the `DATASET_FOLDER` and the `SOURCE_ZIP` file is **NOT** present, *stops the execution with an error message*
+* If the `DATASET_FOLDER` is present, assumes that the *required files are already available* there
+* If the `DATASET_FOLDER` is **NOT** present, but the `SOURCE_ZIP` is available, will extract the contents of the `SOURCE_ZIP` file
+* Reads and loads the Activity Id/Labels from the file `**activity_labels.txt**` into `dfACTIVITIES` (dataframe)
+* Reads and loads the Feature Labels (Sensor Data/Calculations) from the file `**features.txt**` into `dfFEATURES` (dataframe)
+..*Renames/Expands/Sanitizes the Feature Labels in `dfFEATURES` dataframe 
 ..* format {Time|Frequency}.{Measurement|Jerk}.{mean|std}.{X|Y|Z} for all 3D measurements and the 
 ..* format {Time|Frequency}.{Measurement|Jerk}.{mean|std} for Magnitude calculations
 
@@ -40,16 +40,16 @@ performs the following actions:
 
 performs the following actions
 * accepts the *partitionName* (**PPPP**) that needs to be loaded, can be either *'test'* - for testing data or *'train'* for training data
-..* it is expected that these folder names *test* and *train* is present under the **DATASET_FOLDER**
-* Loads the data from the subject_**PPPP**.txt from the **DATASET_FOLDER\PPPP** folder and sets the column name as (Subject.Id) in **dfSUBJECTS** (dataframe)
-* Loads the activity/test data from the y_*PPPP* from the **DATASET_FOLDER\PPPP** folder and sets the column name as (Activity.Id) in **dfTESTS** (dataframe)
-* Merges the Subject and the Activity Performed Data into **dfSUBJECT_TEST**
-* Loads the actual Sensor/Calculated Data from X_**PPPP**.txt from the **DATASET_FOLDER\PPPP** folder into **dfREADINGS** (dataframe)
-..*Assigns the column names based on the **dfFEATURES** 
+** it is expected that these folder names *test* and *train* is present under the `DATASET_FOLDER`
+* Loads the data from the subject_**PPPP**.txt from the **DATASET_FOLDER\PPPP** folder and sets the column name as (Subject.Id) in `dfSUBJECTS` (dataframe)
+* Loads the activity/test data from the y_*PPPP* from the **DATASET_FOLDER\PPPP** folder and sets the column name as (Activity.Id) in `dfTESTS` (dataframe)
+* Merges the Subject and the Activity Performed Data into `dfSUBJECT_TEST`
+* Loads the actual Sensor/Calculated Data from X_**PPPP**.txt from the **DATASET_FOLDER\PPPP** folder into `dfREADINGS` (dataframe)
+..*Assigns the column names based on the `dfFEATURES` 
 ..*Identify the required/relevant variables for this exercise (those with mean() and std() only are selected for this exercise)
-..*Subset the **dfREADINGS** to exclude unwanted variables/columns!
-..*Merge the **dfREADINGS** with **dfSUBJECT_TEST**
-* return the merged and properly labled **dfREADINGS** dataframe
+..*Subset the `dfREADINGS` to exclude unwanted variables/columns!
+..*Merge the `dfREADINGS` with `dfSUBJECT_TEST`
+* return the merged and properly labled `dfREADINGS` dataframe
 
 ### main()
 This is the main entrypoint for this program and performs the following actions
@@ -61,6 +61,6 @@ This is the main entrypoint for this program and performs the following actions
 ..* Converts Subject.Id and Activity.Id as integers (to facilitate numerical sorting!)
 ..* Groups by Subject.Id and Activity.Id to capture the means of all available variables
 ..* Orders/arranges by Subject.Id and Activity.Id 
-..* updates the Activity.Id with the actual name of the activity from **dfACTIVITIES**
+..* updates the Activity.Id with the actual name of the activity from `dfACTIVITIES`
 ..* Renames the column name Activity.Id to Activity.Name
 * writes the contents of the dataframe **dfAVERAGES** to the file **tidy_data.txt**

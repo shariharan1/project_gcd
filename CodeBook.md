@@ -44,9 +44,10 @@ Following are the variables captured in the final tidy data set
 `Activity.Name`: Identifies the activitiy performed by the subject and following are the activities performed (WALKING,WALKING_UPSTAIRS,WALKING_DOWNSTAIRS,SITTING,STANDING,LAYING) 
 
 Measurements: For each `Subject.Id` and `Activity.Name` the average(mean) of each of measurements are captured as shown below. While from the source data, the mean/standard deviation were retreived, the final data set only stored the average of these values.
-| Variable/Column Name|Description|
-|---------------------|-----------|
-|{Time\|Frequency}.Body.Acceleration.{mean\|std}.{X\|Y\|Z} | Average of the 3 axis signals for Body Acceleration on both Time & Frequency Domains
+
+| Variable/Column Name | Description |
+|----------------------|-------------|
+|{Time\|Frequency}.Body.Acceleration.{mean\|std}.{X\|Y\|Z} | Average of the 3 axis signals for Body Acceleration on both Time & Frequency Domains |
 |{Time\|Frequency}.Body.Acceleration.Jerk.{mean\|std}.{X\|Y\|Z} | Average of the 3 axis signals for Linear Acceleration on both Time & Frequency Domains
 |{Time\|Frequency}.Body.Orientation.{mean\|std}.{X\|Y\|Z} | Average of the 3 axis signals for Angular Velocity on both Time & Frequency Domains
 |{Time\|Frequency}.Body.Acceleration.Magnitude.{mean\|std} | Average of the Magnitude of the Body Acceleration

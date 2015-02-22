@@ -16,19 +16,15 @@ The repository contains the following files as per requirements from the Project
 
 ### Testing the script (HOWTO)
 
-1. Get the `SOURCE_ZIP` file from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) or here [here](https://www.dropbox.com/s/u7jq5twvohyhac4/UCI%20HAR%20Dataset.zip)
+1. Get the `SOURCE_ZIP` file from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) or [here](https://www.dropbox.com/s/u7jq5twvohyhac4/UCI%20HAR%20Dataset.zip)
 
-2. Move the `SOURCE_ZIP` to the working folder `CURR_WORKDIR`
-
-3. Download the file `run_analysis.R' to the working folder `CURR_WORKDIR`
-
+2. Move the `SOURCE_ZIP` to your working folder `CURR_WORKDIR`
+3. Download the file `run_analysis.R` to your working folder `CURR_WORKDIR`
 4. Open R console and setwd() to `CURR_WORKDIR`
-
 5. Execute the following command in R console
-```
-source("run_analysis.R")
-```
-
+	```
+	source("run_analysis.R")
+	```
 6. The file `tidy_data.txt` will be created in the folder  `CURR_WORKDIR`
 
 ### Description of run_analysis.R

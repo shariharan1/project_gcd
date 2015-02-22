@@ -25,7 +25,6 @@ This .R file contains the following functions
 ### init()
 
 performs the following actions:
-```
 * Initialises the directory variables and identifies the **CURR_WORKDIR**
 * Verifies whether the required folder **DATASET_FOLDER** (**UCI HAR Dataset**) or **SOURCE_ZIP** (**UCI HAR Dataset.zip**) file is present in **CURR_WORKDIR**
 ..*If both the **DATASET_FOLDER** and the **SOURCE_ZIP** file is **NOT** present, *stops the execution with an error message*
@@ -37,12 +36,9 @@ performs the following actions:
 ..* format {Time|Frequency}.{Measurement|Jerk}.{mean|std}.{X|Y|Z} for all 3D measurements and the 
 ..* format {Time|Frequency}.{Measurement|Jerk}.{mean|std} for Magnitude calculations
 
-```
-
 ### load_data(partitionName)
 
 performs the following actions
-```
 * accepts the *partitionName* (**PPPP**) that needs to be loaded, can be either *'test'* - for testing data or *'train'* for training data
 ..* it is expected that these folder names *test* and *train* is present under the **DATASET_FOLDER**
 * Loads the data from the subject_**PPPP**.txt from the **DATASET_FOLDER\PPPP** folder and sets the column name as (Subject.Id) in **dfSUBJECTS** (dataframe)
@@ -54,19 +50,17 @@ performs the following actions
 ..*Subset the **dfREADINGS** to exclude unwanted variables/columns!
 ..*Merge the **dfREADINGS** with **dfSUBJECT_TEST**
 * return the merged and properly labled **dfREADINGS** dataframe
-```
 
 ### main()
 This is the main entrypoint for this program and performs the following actions
-```
+ 
 * calls init() to initialize the processing environment
 * calls load_data("test") to get the **dfREADINGS_TEST** and load_data("train") to get the **dfREADINGS_TRAIN**
 * merges the two dataframes **dfREADINGS_TEST** and **dfREADINGS_TRAIN** to **dfREADINGS_FULL**
 * creates the final dataframe **dfAVERAGES** by performing the following
-..*Converts Subject.Id and Activity.Id as integers (to facilitate numerical sorting!)
-..*Groups by Subject.Id and Activity.Id to capture the means of all available variables
-..*Orders/arranges by Subject.Id and Activity.Id 
-..*updates the Activity.Id with the actual name of the activity from **dfACTIVITIES**
-..*Renames the column name Activity.Id to Activity.Name
+..* Converts Subject.Id and Activity.Id as integers (to facilitate numerical sorting!)
+..* Groups by Subject.Id and Activity.Id to capture the means of all available variables
+..* Orders/arranges by Subject.Id and Activity.Id 
+..* updates the Activity.Id with the actual name of the activity from **dfACTIVITIES**
+..* Renames the column name Activity.Id to Activity.Name
 * writes the contents of the dataframe **dfAVERAGES** to the file **tidy_data.txt**
-```
